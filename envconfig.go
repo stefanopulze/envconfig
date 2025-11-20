@@ -2,7 +2,6 @@ package envconfig
 
 import (
 	"encoding"
-	"envconfig/internal/dotenv"
 	"errors"
 	"fmt"
 	"os"
@@ -10,6 +9,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/stefanopulze/envconfig/internal/dotenv"
 )
 
 const (

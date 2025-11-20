@@ -1,9 +1,10 @@
 package main
 
 import (
-	"envconfig"
 	"fmt"
 	"log/slog"
+
+	"github.com/stefanopulze/envconfig"
 )
 
 type Foo struct {
