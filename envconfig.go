@@ -68,7 +68,9 @@ func readStruct(s reflect.Value, prefix string) error {
 		value, found := os.LookupEnv(envName)
 		if !found {
 			defaultValue := fieldType.Tag.Get(tagEnvDefault)
-			if len(defaultValue) > 0 {
+			if len(defaultValue) == 0 {
+				continue
+			} else {
 				value = defaultValue
 			}
 		}
