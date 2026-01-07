@@ -67,7 +67,10 @@ func readStruct(s reflect.Value, prefix string) error {
 		envName := joinPrefix(prefix, lookupEnvName(fieldType))
 		value, found := os.LookupEnv(envName)
 		if !found {
-			value = fieldType.Tag.Get(tagEnvDefault)
+			defaultValue := fieldType.Tag.Get(tagEnvDefault)
+			if len(defaultValue) > 0 {
+				value = defaultValue
+			}
 		}
 
 		err = parseValue(fieldType, fieldValue, value)
